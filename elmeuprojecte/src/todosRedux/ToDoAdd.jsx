@@ -19,15 +19,18 @@ export function ToDoAdd() {
       description: description,
       done: false
     };
+
     onResetForm();
+    
     console.log("Abans del dispatch");
     dispatch(addtodo(newTodo));
+    
   };
 
   return (
     <div className="contenido contenidoaddplace">
       <form onSubmit={(e) => {onFormSubmit(e);}} className="material-form">
-        <h1 style={{fontSize: '1.5em',}}>ADD TODOS</h1>
+        <h1 style={{fontSize: '1.5em',}}>ADD TODOS REDUX</h1>
         <div className="material-form__container">
           <input className="material-form__input" value={description} type="text" placeholder="" name="description" pattern="[a-zA-Z ñÑáàéèíìóòúùÁÉÍÓÚÀÈÌÒÙ 0-9 .,;:-_]{4,140}" minLength="4" maxLength="140" onChange={(e) => {onInputChange(e);}}/>
           <label className="material-form__label" htmlFor="description">Descripción todo</label>

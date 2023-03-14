@@ -15,6 +15,13 @@ export const ToDos = () => {
   let [notodo, setNoTodo] = useState(false);
   const [todos, dispatchTodos] = useReducer(todosReducer, initialState, init);
 
+  const [ oculta,setOculta] = useState(false)
+
+  const refresca = ()=>{
+
+    setRefresh(!refresh)
+  }
+
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
     if (todos[0] == null){
@@ -53,7 +60,10 @@ export const ToDos = () => {
   return (
     <>
       <h1 style={{fontSize: '2.5em', margin:'25px'}}>Todos Reducer</h1>
-      <ToDoAdd handle={handleNewToDo} />
+      {/* <ToDoAdd handle={handleNewToDo} /> */}
+
+      <button style={{width: '10%', margin:'0 auto'}} onClick={ ()=> setOculta(!oculta)} >{ !oculta ? "Ocultar Afegir" : "Mostrar Afegir" }</button>
+    { !oculta ? <ToDoAdd refrescar={refresca} handle={handleNewToDo} /> : <></> }
       <div className="container">
         {notodo == false &&
         <table className="tabla">

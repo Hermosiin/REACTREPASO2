@@ -14,6 +14,8 @@ export default function App() {
       <Routes>
         <Route path='*' element={<> <ToDos/> </>} />
         <Route path="/" element={<> <ToDos/> </>} />
+        {/* Por si quiero poner los dos juntos en el mismo documento */}
+        {/* <Route path="/" element={<> <ToDos/> <ToDosR/> </>} />  */}
         <Route path="/todosreducer" element={<> <ToDos/> </>} />
         <Route path="/todosredux" element={<> <ToDosR/> </>} />
 

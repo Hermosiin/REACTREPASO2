@@ -16,14 +16,19 @@ export function ToDoAdd({ handle }) {
       description: description,
       done: false
     };
+
+    
     handle(newTodo);
+
+    onResetForm();
+    
   };
 
   return(<div className="contenido contenidoaddplace">
     <form method='POST' className="material-form">
-    <h1 style={{fontSize: '1.5em',}}>ADD TODOS</h1>
+    <h1 style={{fontSize: '1.5em',}}>ADD TODOS REDUCER</h1>
       <div className="material-form__container">
-        <input className="material-form__input" type="text" placeholder="" name="description" pattern="[a-zA-Z ñÑáàéèíìóòúùÁÉÍÓÚÀÈÌÒÙ 0-9 .,;:-_]{4,140}" minLength="4" maxLength="140" onChange={(e) => {onInputChange(e);}}/>
+        <input className="material-form__input" value={description} type="text" placeholder="" name="description" pattern="[a-zA-Z ñÑáàéèíìóòúùÁÉÍÓÚÀÈÌÒÙ 0-9 .,;:-_]{4,140}" minLength="4" maxLength="140" onChange={(e) => {onInputChange(e);}}/>
         <label className="material-form__label" htmlFor="description">Descripción todo</label>
         <div className="material-form__focus-animation"></div>
         <p className="material-form__error">Descripción no válida</p>
